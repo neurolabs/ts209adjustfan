@@ -91,9 +91,7 @@ function setfan {
 CURRTEMP=-10
 for ((a=0; a < ${#DEVICES[*]} ; a++)); do
   OUTPUT=`$HDDTEMP ${DEVICES[${a}]} 2>&1`
-  log $OUTPUT
   SLEEPING=`echo $OUTPUT|grep sleeping|wc -l`
-  log $SLEEPING
   if [[ "$SLEEPING" == "1" ]]; then
     log drive ${DEVICES[${a}]} is sleeping
     TEMP=-2
